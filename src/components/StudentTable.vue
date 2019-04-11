@@ -23,15 +23,14 @@
 
 
 <script>
-   import NewStudentForm from "./NewStudentForm";
    export default{
        name:'StudentTable',
-       components: {NewStudentForm},
        props:{
            students:Array
        },
        methods:{
            checked(student){
+               this.$emit('student-present',student)
            }
        }
    }
@@ -40,5 +39,16 @@
 
 <style>
     /* write any styles for this component here*/
+    #student-table{
+        max-height:500px;
+        overflow:scroll;
+    }
+    .present-true{
+        color:gray;
+        font-style:italic;
+    }
+    .present-false{
+        font-weight: bold;
+    }
 
 </style>
