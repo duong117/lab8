@@ -13,6 +13,7 @@
                         <th>Name</th>
                         <th>StarID</th>
                         <th>Present?</th>
+                        <th v-show="editTable">Delete</th>
                     </tr>
                     <StudentRow
                             v-for="student in students" v-bind:key="student.name"
@@ -34,6 +35,11 @@
    export default{
        name:'StudentTable',
        components:{StudentRow},
+       data(){
+           return{
+               editTable:false
+           }
+       },
        props:{
            students:Array
        },
